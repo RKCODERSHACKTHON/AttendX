@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard – AttendX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="/css/pages/faculty.style.css" />
+</head>
+<body>
+
+<header class="faculty-header">
+  <div class="logo">Attend<span>X</span></div>
+  <div class="profile-area">
+    <div class="avatar-circle" id="headerAvatar">--</div> 
+  </div>
+</header>
+
+<main class="faculty-main">
+  <section class="page active" id="dashboard">
+    <div class="welcome-section">
+      <h1 id="welcomeText">Faculty Dashboard</h1>
+      <p>Manage your sessions and attendance</p>
+    </div>
+
+    <div class="faculty-card">
+      <div class="stat-item">
+        <div class="stat-icon blue">📚</div>
+        <div class="stat-text">
+          <span>Sessions Today</span>
+          <strong id="sessionCount">2</strong>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon green">👥</div>
+        <div class="stat-text">
+          <span>Total Present</span>
+          <strong id="studentCount">58</strong>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-title">Quick Actions</h3>
+    <div class="quick-actions-grid">
+      <div class="action-tile" onclick="switchPage('qr-session')">
+        <div class="tile-icon blue">➕</div>
+        <span>New Session</span>
+      </div>
+      <div class="action-tile" onclick="alert('Feature coming soon!')">
+        <div class="tile-icon purple">📅</div>
+        <span>Schedule</span>
+      </div>
+      <div class="action-tile" onclick="alert('Exporting data...')">
+        <div class="tile-icon green">📊</div>
+        <span>Reports</span>
+      </div>
+    </div>
+
+    <h3 class="section-title">Recent Sessions</h3>
+    <div class="faculty-card history-container">
+      <div class="history-item">
+        <div class="history-info">
+          <strong>Computer Networks</strong>
+          <span>Today • 10:30 AM</span>
+        </div>
+        <span class="count-badge">42 Students</span>
+      </div>
+      <div class="history-item">
+        <div class="history-info">
+          <strong>Java Programming</strong>
+          <span>Yesterday • 02:00 PM</span>
+        </div>
+        <span class="count-badge">16 Students</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="qr-session">
+    <div class="faculty-card qr-container">
+      <h2>Generate QR Code</h2>
+      <p class="sub">Students will scan this to mark attendance</p>
+
+      <div class="session-form" id="setupForm">
+        <div class="input-group">
+          <label>Subject Name</label>
+          <input type="text" id="subjectInput" placeholder="e.g. Computer Networks" />
+        </div>
+        <div class="input-group">
+          <label>Session Duration</label>
+          <select id="durationSelect">
+            <option value="60">1 Minute</option>
+            <option value="300">5 Minutes</option>
+            <option value="600">10 Minutes</option>
+          </select>
+        </div>
+        <button id="startSessionBtn" class="primary-btn">Generate QR</button>
+      </div>
+
+      <div class="qr-active-box" id="qrBox" style="display: none;">
+        <div id="qrcode"></div> 
+        <div class="timer-display">
+          <p>Session active for: <strong id="activeSubject">--</strong></p>
+          <div class="countdown">Expires in <span id="timer">--</span>s</div>
+        </div>
+        <button id="endSessionBtn" class="danger-btn">End Session</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="profile">
+    <div class="faculty-card profile-card">
+      <div class="profile-header-visual">
+        <div class="profile-avatar-large" id="pAvatar">--</div>
+        <h2 id="pName">Faculty Name</h2>
+        <span class="role-badge">Faculty Member</span>
+      </div>
+      
+      <div class="profile-details">
+        <div class="detail-row">
+          <label>Email Address</label>
+          <p id="pEmail">faculty@university.com</p>
+        </div>
+        <div class="detail-row">
+          <label>Employee ID</label>
+          <p id="pId">FAC123</p>
+        </div>
+      </div>
+
+      <button class="logout-btn" onclick="handleLogout()">Log Out</button>
+    </div>
+  </section>
+</main>
+
+<footer class="faculty-footer">
+  <button class="footer-item active" onclick="switchPage('dashboard')">
+    <span class="nav-icon">📊</span>
+    <span>Home</span>
+  </button>
+  <button class="footer-item" onclick="switchPage('qr-session')">
+    <span class="nav-icon">📷</span>
+    <span>QR Session</span>
+  </button>
+  <button class="footer-item" onclick="switchPage('profile')">
+    <span class="nav-icon">👤</span>
+    <span>Profile</span>
+  </button>
+</footer>
+
+<script src="/js/pages/faculty.script.js"></script>
+</body>
+</html>

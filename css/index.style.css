@@ -1,0 +1,233 @@
+/* =========================
+   BASE & THEME
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  /* Matching the Student Dashboard Background */
+  background-color: #f8fbff;
+  background-image: radial-gradient(#2563eb12 1px, transparent 1px);
+  background-size: 30px 30px;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR (Glassmorphism)
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px clamp(20px, 5vw, 70px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #2563eb;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 3vw, 28px);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #2563eb;
+}
+
+.login-btn a {
+  text-decoration: none;
+  padding: 10px 24px;
+  background: #2563eb;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.login-btn a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+  color: white;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(40px, 8vw, 90px) clamp(20px, 5vw, 70px);
+  gap: 40px;
+}
+
+.badge {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.hero-text h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.hero-text h1 span {
+  color: #2563eb;
+}
+
+.hero-text p {
+  font-size: clamp(16px, 2vw, 18px);
+  color: #64748b;
+  max-width: 540px;
+  margin-bottom: 30px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+}
+
+/* =========================
+   CARDS & GRIDS (Consistent with Student)
+========================= */
+.how, .why {
+  padding: 80px clamp(20px, 5vw, 70px);
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.sub, .why-sub {
+  margin: 10px auto 50px;
+  color: #64748b;
+  max-width: 600px;
+}
+
+.how-grid, .why-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.how-card, .why-card {
+  background: white;
+  padding: 35px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease;
+}
+
+.how-card:hover, .why-card:hover {
+  transform: translateY(-8px);
+}
+
+.how-card {
+  width: 300px;
+}
+
+.how-card img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.how-card h3 {
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+/* =========================
+   WHY SECTION (Comparison Cards)
+========================= */
+.why-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.why-card.old { border-top: 6px solid #fca5a5; }
+.why-card.new { border-top: 6px solid #4ade80; }
+
+.why-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+  padding: 10px;
+  background: #f8faff;
+  border-radius: 12px;
+}
+
+.why-item span { font-size: 20px; }
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #0f172a;
+  color: #94a3b8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .hero-text p { margin: 0 auto 30px; }
+  .navbar { padding: 15px 20px; }
+  .navbar nav { display: none; } /* Hide extra links on mobile for cleaner look */
+}

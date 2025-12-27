@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – AttendX</title>
+  <link rel="stylesheet" href="css/login.style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Attend<span>X</span></div>
+</header>
+
+<section class="login-wrapper">
+  <div class="login-card">
+
+    <h2>Welcome Back</h2>
+    <p class="login-sub">Securely access your AttendX dashboard</p>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label>User ID</label>
+        <input type="text" id="loginId" placeholder="Enter Demo ID" required />
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="loginPass" placeholder="••••••••" required />
+      </div>
+
+      <button type="submit" class="login-btn full">Login</button>
+    </form>
+
+    <div class="demo-hint">
+      <p><strong>Prototype Access:</strong></p>
+      <div class="hint-row"><span>Student:</span> <strong>STD001</strong> / 123</div>
+      <div class="hint-row"><span>Faculty:</span> <strong>FAC001</strong> / 123</div>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html">← Back to Home</a>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/login.script.js"></script>
+</body>
+</html>

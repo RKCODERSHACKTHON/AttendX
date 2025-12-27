@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard – AttendX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <link rel="stylesheet" href="/css/pages/student.style.css" />
+</head>
+<body>
+
+<header class="student-header">
+    <div class="logo">Attend<span>X</span></div>
+    <div class="profile-area">
+        <div class="avatar-circle" id="headerAvatar">--</div>
+    </div>
+</header>
+
+<main class="student-main">
+    <div class="welcome-section">
+        <h1>Hello, <span id="welcomeName">Student</span>! 👋</h1>
+        <p>Your learning journey is 85% on track.</p>
+    </div>
+
+    <section class="page dashboard-page active" id="dashboard">
+        <div class="dashboard-grid">
+            <div class="dashboard-card visual-card">
+                <div class="attendance-ring-container">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__background" stroke="#e2e8f0" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle" id="ringCircle" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="transparent" r="50" cx="60" cy="60"/>
+                    </svg>
+                    <div class="percentage">85%</div>
+                </div>
+                <div class="card-info">
+                    <h3>Overall Status</h3>
+                    <p>You have attended 24/28 classes this month.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-card stats-list-card">
+                <div class="stat-item">
+                    <div class="stat-icon blue">📅</div>
+                    <div class="stat-text">
+                        <span>Last 30 Days</span>
+                        <strong>85%</strong>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon green">📈</div>
+                    <div class="stat-text">
+                        <span>Semester Total</span>
+                        <strong>78%</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-card quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="action-btn" onclick="switchPage('scan')">
+                    <span>📷</span> Mark Attendance
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page scan-page" id="scan">
+        <div class="dashboard-card scan-card">
+            <h2>Attendance Scanner</h2>
+            <p class="scan-sub">Align the QR code within the frame</p>
+
+            <div class="camera-box" id="cameraBox">
+                <button class="close-camera" id="closeCamera" title="Close Camera">×</button>
+                <video id="cameraPreview" autoplay playsinline></video>
+                <canvas id="qrCanvas" hidden></canvas>
+                <div class="scan-overlay">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                </div>
+            </div>
+
+            <button id="startScanBtn" class="register-btn">Start Camera</button>
+            <p id="scanStatus" class="scan-status"></p>
+        </div>
+    </section>
+
+    <section class="page profile-page" id="profile">
+        <div class="dashboard-card profile-card">
+            <div class="profile-header-visual">
+                <div class="profile-avatar-large" id="profileAvatarLarge">--</div>
+                <h3 id="pNameHeader">Student Name</h3>
+                <span class="role-badge">Student</span>
+            </div>
+            <div class="profile-details">
+                <div class="detail-row">
+                    <label>Email</label>
+                    <p id="pEmail">--</p>
+                </div>
+                <div class="detail-row">
+                    <label>Student ID</label>
+                    <p id="pId">--</p>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">Log Out</button>
+        </div>
+    </section>
+</main>
+
+<footer class="student-footer">
+    <button class="footer-item active" onclick="switchPage('dashboard')">
+        <span class="nav-icon">📊</span>
+        <span>Home</span>
+    </button>
+    <button class="footer-item" onclick="switchPage('scan')">
+        <span class="nav-icon">📷</span>
+        <span>Scan</span>
+    </button>
+    <button class="footer-item" onclick="switchPage('profile')">
+        <span class="nav-icon">👤</span>
+        <span>Profile</span>
+    </button>
+</footer>
+
+<script src="/js/pages/student.script.js"></script>
+</body>
+</html>
