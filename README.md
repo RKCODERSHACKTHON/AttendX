@@ -5,7 +5,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/smart-attendance-prototype.git
+   git clone https://github.com/RKCODERSHACKTHON/AttendX.git
 
 # 🎓 Smart Attendance System – Frontend Prototype
 
